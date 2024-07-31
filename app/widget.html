@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://static.zohocdn.com/zohocrm/sdk/1.0.0/sdk.js"></script>
+    <script src="https://live.zwidgets.com/js-sdk/1.1/ZohoEmbededAppSDK.min.js"></script>
+    <link rel="stylesheet" href="sweetalert2.min.css">
+    <title>Review Portal</title>
+
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <div class="admin-portal-container">
+        <div id="form-header" class="form-header"></div>
+        <hr>
+        <div id="sub-header" class="sub-header"></div>
+        <div id="form-content"></div>
+    </div>
+    <br>
+    <hr>
+
+    </div>
+
+    <!-- Reject Reason Popup -->
+    <div class="modal" id="reject-popup">
+        <div class="modal-content">
+            <span class="close-btn" onclick="closeRejectPopup()">&times;</span>
+            <h2>Reject Document</h2>
+            <p>Please provide the reason for rejection:</p>
+            <textarea id="reject-reason" rows="4" cols="50"></textarea>
+            <button class="modal-btn" onclick="submitRejectReason(this)">Submit</button>
+        </div>
+    </div>
+
+    <!-- Preview Popup -->
+    <div class="modal" id="preview-popup">
+        <span class="close-preview-btn" onclick="closePreviewPopup()">&times;</span>
+        <div class="preview-content" id="preview-content">
+            <iframe
+                src="https://workdrive.zohoexternal.com/embed/u7jpd39045ce0a78e4dd1be89f4438d2e44e6?toolbar=false&appearance=light&themecolor=green"
+                scrolling="no" frameborder="0" allowfullscreen=true width="800" height="520"
+                title="Embed code"></iframe>
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="script.js"></script>
+    
+</body>
+
+</html>

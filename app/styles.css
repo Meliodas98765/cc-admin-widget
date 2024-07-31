@@ -1,0 +1,292 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    padding: 20px;
+}
+.admin-portal-container {
+    max-width: 100%;
+    margin: 0 auto;
+    background: #fff;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+.admin-portal-header,.form-header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    margin-left: 38%;
+    color: #dc3545;
+}
+.admin-portal-header h2 {
+    margin: 0;
+    font-size: 24px;
+}
+.workdrive-link {
+    text-decoration: none;
+}
+.workdrive-btn {
+    padding: 10px 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #fff;
+    cursor: pointer;
+    font-size: 16px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+.workdrive-btn:hover {
+    background-color: #f0f0f0;
+}
+.workdrive-icon {
+    font-size: 20px;
+}
+.admin-portal-group {
+    margin-bottom: 20px;
+}
+.category-header {
+    font-weight: bold;
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+.admin-portal-subgroup {
+    margin-bottom: 10px;
+}
+.label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+.file-actions {
+    display: flex;
+    gap: 10px;
+}
+.preview-btn, .accept-btn, .reject-btn {
+    padding: 8px 15px;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+.preview-btn {
+    background-color: #007bff;
+    color: white;
+}
+.accept-btn {
+    background-color: #28a745;
+    color: white;
+}
+.reject-btn {
+    background-color: #dc3545;
+    color: white;
+}
+.preview-btn:disabled, .accept-btn:disabled, .reject-btn:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+.admin-portal-status {
+    margin-top: 5px;
+    font-weight: bold;
+    font-size: 14px;
+    color: #333;
+}
+#marriage-certificate-group {
+    margin-top: 20px;
+}
+/* Modal Styles */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 2;
+    left: 0;
+    top: 0;
+    padding: 0px 155px 0 155px;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0,0,0,0.4);
+}
+.modal-content {
+    background-color: #fefefe;
+    margin: 15% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+    max-width: 500px;
+    position: relative;
+}
+.close-btn {
+    color: #aaa;
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+}
+.close-btn:hover,
+.close-btn:focus {
+    color: black;
+    text-decoration: none;
+}
+.modal-btn {
+    padding: 8px 15px;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+    background-color: #dc3545;
+    color: white;
+    margin-top: 10px;
+    transition: background-color 0.3s ease;
+}
+.modal-btn:hover {
+    background-color: #c82333;
+}
+/* Preview Popup */
+.preview-popup {
+    display: none;
+    position: fixed;
+    z-index: 3;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.4);
+    overflow: auto;
+}
+.preview-content {
+    background-color: #fefefe;
+    /* margin: 10% auto; */
+    padding: 20px;
+    border: 1px solid #888;
+    /* width: 60%; */
+    /* max-width: 800px; */
+    height: 750px;
+    border-radius: 5px;
+    position: relative;
+}
+.close-preview-btn {
+    color: #140101;
+    position: absolute;
+    top: -7px;
+    right: 159px;
+    font-size: 32px;
+    font-weight: bolder;
+    z-index: 2;
+}
+.close-preview-btn:hover,
+.close-preview-btn:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+
+/* ------------ */
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f5f7;
+    color: #333;
+    margin: 0;
+    padding: 0;
+}
+.hide-imp {
+    display: none;
+}
+.space {
+    width: 75px;
+}
+.admin-portal-container {
+    width: 100%;
+    max-width: 1200px;
+    margin: auto;
+    padding: 20px;
+    background-color: #fff;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+}
+.admin-portal-header {
+    background-color: #fff;
+    padding: 20px;
+    border-bottom: 1px solid #e0e0e0;
+    margin-bottom: 20px;
+}
+.admin-portal-header h2 {
+    color: #333;
+    margin: 0;
+    font-size: 24px;
+}
+.admin-portal-header select {
+    margin-top: 10px;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 14px;
+}
+.category-header {
+    font-weight: bold;
+    font-size: 18px;
+    padding: 10px 0;
+    border-bottom: 1px solid #e0e0e0;
+    margin-bottom: 10px;
+    color: #0070c9;
+}
+.admin-portal-group, .admin-portal-subgroup{
+    margin-bottom: 20px;
+    padding: 10px 20px;
+    background-color: #fff;
+    border: 1px solid #e0e0e0;
+    border-radius: 4px;
+}
+.admin-portal-subgroup label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: 600;
+}
+.admin-portal-subgroup-actions {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.preview-btn {
+    background-color: #007bff;
+    color: white;
+}
+.accept-btn {
+    background-color: #28a745;
+    color: white;
+}
+.reject-btn {
+    background-color: #dc3545;
+    color: white;
+}
+.file-actions button {
+    margin-right: 5px;
+    padding: 8px 12px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    color: #fff;
+    font-size: 14px;
+}
+.file-actions button:hover {
+    background-color: #005bb5;
+}
+.admin-portal-status {
+    font-size: 14px;
+    color: #666;
+}
+.sub-header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    margin-left: 27%;
+}
