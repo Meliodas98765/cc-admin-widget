@@ -32,7 +32,7 @@ const formConfigurations = {
                     { id: "marriage-certificate-status", label: "Marriage certificate/ Marriage affidavit", file: "marriage-certificate-file", statusId: "marriage-certificate-status" },
                     { id: "family-registration-status", label: "Family registration docs (for clients from Pakistan)", file: "family-registration-file", statusId: "family-registration-status" },
                     { id: "indian-passport", label: "Indian passport or any education document", file: "indian-passport-file", statusId: "indian-passport-status" }
-        
+
                 ]
             },
             {
@@ -220,9 +220,8 @@ function createPortalSubgroup(item) {
     Folderlink.dataset.statusId = item.statusId;
     Folderlink.textContent = 'Open Folder';
     Folderlink.onclick = () => folder(Folderlink);
-
-
     fileActionsDiv.appendChild(Folderlink);
+
     actionsDiv.appendChild(fileActionsDiv);
 
     const spacer = document.createElement('div');
@@ -358,6 +357,18 @@ async function accept(button) {
         });
     }
 }
+async function folder(value) {
+    console.log("data ", value);
+    const statusId = value.dataset.statusId;
+    const statusDiv = document.getElementById(statusId);
+    for (const key in curr_status) {
+        if (statusId == curr_status[key][1]) {
+            console.log("Folder ", statusId);
+            workdriveLink = curr_status[key][4];
+            window.open(workdriveLink);
+        }
+    }
+}
 
 function reject(button) {
     const statusId = button.dataset.statusId;
@@ -377,33 +388,33 @@ ZOHO.embeddedApp.on("PageLoad", async (data) => {
     ZOHO.CRM.API.getRecord({
         Entity: "Cases", approved: "both", RecordID: entityId
     })
-    .then(async function (data) {
-        console.log(data);
-        const typeofapp = data.data[0].Type_of_Application;
-        const statusdata = data.data[0].status;
-        const selectedApplicantDocuments = data.data[0].Selected_Applicant_s_Documents; // Add this line
-        console.log(typeofapp, idmap[typeofapp]);
-        const formType = idmap[typeofapp];
-        if (formType && formConfigurations[formType]) {
-            loadForm(formConfigurations[formType], selectedApplicantDocuments); // Pass the value here
-        } else {
-            console.error('Failed to load form configuration.');
-        }
-        // get related record for Portal Item
-        const related_items = await getPortalItems("Cases", entityId, "Portal_Items", 1, 200);
-        console.log(related_items);
-        for (let index = 0; index < related_items.data.length; index++) {
-            const element = related_items.data[index];
-            curr_status[element.Portal_Item_Hash] = [element.Status, element.Item_ID, element.Rejected_Reason, element.File_preview,element.Workdrive_Folder_Link];
-            // status update
-            update_item_status(curr_status, element.Portal_Item_Hash);
-        }
-        console.log("curr_status");
-        console.log(curr_status);
-        // for (let iterator in curr_status) {
-        //     console.log(iterator);
-        // }   
-    })
+        .then(async function (data) {
+            console.log(data);
+            const typeofapp = data.data[0].Type_of_Application;
+            const statusdata = data.data[0].status;
+            const selectedApplicantDocuments = data.data[0].Selected_Applicant_s_Documents; // Add this line
+            console.log(typeofapp, idmap[typeofapp]);
+            const formType = idmap[typeofapp];
+            if (formType && formConfigurations[formType]) {
+                loadForm(formConfigurations[formType], selectedApplicantDocuments); // Pass the value here
+            } else {
+                console.error('Failed to load form configuration.');
+            }
+            // get related record for Portal Item
+            const related_items = await getPortalItems("Cases", entityId, "Portal_Items", 1, 200);
+            console.log(related_items);
+            for (let index = 0; index < related_items.data.length; index++) {
+                const element = related_items.data[index];
+                curr_status[element.Portal_Item_Hash] = [element.Status, element.Item_ID, element.Rejected_Reason, element.File_preview, element.Workdrive_Folder_Link];
+                // status update
+                update_item_status(curr_status, element.Portal_Item_Hash);
+            }
+            console.log("curr_status");
+            console.log(curr_status);
+            // for (let iterator in curr_status) {
+            //     console.log(iterator);
+            // }   
+        })
 });
 ZOHO.embeddedApp.init().then(function (data) {
     ZOHO.CRM.UI.Resize({ height: "100%", width: "70%" }).then(function (data) {
@@ -541,7 +552,7 @@ async function previewFile(fileType) {
     console.log(previewFileId);
     for (const key in curr_status) {
         if (previewFileId == curr_status[key][1]) {
-        // if ("pr-card-status" == curr_status[key][1]) {
+            // if ("pr-card-status" == curr_status[key][1]) {
             var getData = await getRecord("CC_Portal_Items", key);
             console.log("response");
             console.log(getData);
