@@ -31,7 +31,7 @@ const formConfigurations = {
                     { id: "education-docs-status", label: "Any education docs showing parents name on it", file: "education-docs-file", statusId: "education-docs-status" },
                     { id: "marriage-certificate-status", label: "Marriage certificate/ Marriage affidavit", file: "marriage-certificate-file", statusId: "marriage-certificate-status" },
                     { id: "family-registration-status", label: "Family registration docs (for clients from Pakistan)", file: "family-registration-file", statusId: "family-registration-status" },
-                    { id: "indian-passport-status", label: "Indian passport or any education document", file: "indian-passport-file", statusId: "indian-passport-status" }
+                    { id: "indian-passport", label: "Indian passport or any education document", file: "indian-passport-file", statusId: "indian-passport-status" }
         
                 ]
             },
@@ -220,6 +220,8 @@ function createPortalSubgroup(item) {
     Folderlink.dataset.statusId = item.statusId;
     Folderlink.textContent = 'Open Folder';
     Folderlink.onclick = () => folder(Folderlink);
+
+
     fileActionsDiv.appendChild(Folderlink);
     actionsDiv.appendChild(fileActionsDiv);
 
@@ -392,7 +394,7 @@ ZOHO.embeddedApp.on("PageLoad", async (data) => {
         console.log(related_items);
         for (let index = 0; index < related_items.data.length; index++) {
             const element = related_items.data[index];
-            curr_status[element.Portal_Item_Hash] = [element.Status, element.Item_ID, element.Rejected_Reason, element.File_preview];
+            curr_status[element.Portal_Item_Hash] = [element.Status, element.Item_ID, element.Rejected_Reason, element.File_preview,element.Workdrive_Folder_Link];
             // status update
             update_item_status(curr_status, element.Portal_Item_Hash);
         }
