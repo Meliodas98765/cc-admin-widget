@@ -68,14 +68,14 @@ body {
     display: flex;
     gap: 10px;
 }
-.preview-btn, .accept-btn, .reject-btn {
+.preview-btn, .accept-btn, .reject-btn,.folder-btn {
     padding: 8px 15px;
     border: none;
     border-radius: 3px;
     cursor: pointer;
     transition: background-color 0.3s ease;
 }
-.preview-btn {
+.preview-btn,.folder-btn {
     background-color: #007bff;
     color: white;
 }

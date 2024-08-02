@@ -30,7 +30,9 @@ const formConfigurations = {
                     { id: "birth-certificates-status", label: "Birth certificates", file: "birth-certificates-file", statusId: "birth-certificates-status" },
                     { id: "education-docs-status", label: "Any education docs showing parents name on it", file: "education-docs-file", statusId: "education-docs-status" },
                     { id: "marriage-certificate-status", label: "Marriage certificate/ Marriage affidavit", file: "marriage-certificate-file", statusId: "marriage-certificate-status" },
-                    { id: "family-registration-status", label: "Family registration docs (for clients from Pakistan)", file: "family-registration-file", statusId: "family-registration-status" }
+                    { id: "family-registration-status", label: "Family registration docs (for clients from Pakistan)", file: "family-registration-file", statusId: "family-registration-status" },
+                    { id: "indian-passport-status", label: "Indian passport or any education document", file: "indian-passport-file", statusId: "indian-passport-status" }
+        
                 ]
             },
             {
@@ -41,7 +43,7 @@ const formConfigurations = {
                     { id: "pay-slips-status", label: "Pay slips", file: "pay-slips-file", statusId: "pay-slips-status" },
                     { id: "notice-of-assessment-status", label: "Notice of assessment", file: "notice-of-assessment-file", statusId: "notice-of-assessment-status" },
                     { id: "t4-status", label: "T4", file: "t4-file", statusId: "t4-status" },
-                    { id: "additional-income-proof-status", label: "Proof of additional income (incorporation registration)", file: "additional-income-proof-file", statusId: "additional-income-proof-status" }
+                    { id: "additional-income-proof-status", label: "Proof of additional income (incorporation registration)", file: "additional-income-proof-file", statusId: "additional-income-proof-status" },
                 ]
             },
             {
@@ -213,6 +215,12 @@ function createPortalSubgroup(item) {
     rejectBtn.onclick = () => reject(rejectBtn);
     fileActionsDiv.appendChild(rejectBtn);
 
+    const Folderlink = document.createElement('button');
+    Folderlink.className = 'folder-btn';
+    Folderlink.dataset.statusId = item.statusId;
+    Folderlink.textContent = 'Open Folder';
+    Folderlink.onclick = () => folder(Folderlink);
+    fileActionsDiv.appendChild(Folderlink);
     actionsDiv.appendChild(fileActionsDiv);
 
     const spacer = document.createElement('div');
@@ -412,6 +420,7 @@ function update_item_status(items, portal_hash) {
                 const button = button_list[i];
                 button.classList.remove("hide-imp");
             }
+            status_tml.textContent = "Status: Pending Review";
             status_tml.textContent = "Status: Pending Review";
         } else if (item[0] == "Accepted") {
             for (let i = 0; i < button_list.length; i++) {
