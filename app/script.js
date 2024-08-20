@@ -262,7 +262,9 @@ async function loadForm(formData, selectedApplicantDocuments) {
 }
 
 function createApplicantSection(selectedApplicantDocuments) {
-    ['Mother', 'Father', 'Both'].forEach(applicantType => {
+    const applicantDocumentTypes = ['Mother', 'Father', 'Both'];
+
+    applicantDocumentTypes.forEach(applicantType => {
         const subgroupDiv = document.createElement('div');
         subgroupDiv.className = 'admin-portal-subgroup';
         subgroupDiv.id = applicantType;
@@ -279,35 +281,40 @@ function createApplicantSection(selectedApplicantDocuments) {
         subgroupDiv.appendChild(iconDiv);
 
         const items = formConfigurations.superVisa.applicant_documents[applicantType];
-        items.forEach(item => {
-            const sectionHeaderMap = {
-                "mother-questionnaire-status": "1. Questionnaire Form:",
-                "father-questionnaire-status": "1. Questionnaire Form:",
-                "mother-passport-status": "2. Identity documents:",
-                "father-passport-status": "2. Identity documents:",
-                "mother-medical-insurance-status": "3. Medical insurance:",
-                "mother-medical-sheet-status": "4. E medical sheet:",
-                "father-medical-insurance-status": "3. Medical insurance:",
-                "father-medical-sheet-status": "4. E medical sheet:",
-                "mother-marriage-status": "5. Proof of relationship docs:",
-                "father-marriage-status": "5. Proof of relationship docs:",
-                "mother-rep-status": "6. General docs:",
-                "father-rep-status": "6. General docs:",
-            };
 
-            const sectionHeader = document.createElement('div');
-            sectionHeader.className = 'category-header';
-            sectionHeader.textContent = sectionHeaderMap[item.id];
-            subgroupDiv.appendChild(sectionHeader);
+        if (items && items.length > 0) {
+            items.forEach(item => {
+                const sectionHeaderMap = {
+                    "mother-questionnaire-status": "1. Questionnaire Form:",
+                    "father-questionnaire-status": "1. Questionnaire Form:",
+                    "mother-passport-status": "2. Identity documents:",
+                    "father-passport-status": "2. Identity documents:",
+                    "mother-medical-insurance-status": "3. Medical insurance:",
+                    "mother-medical-sheet-status": "4. E medical sheet:",
+                    "father-medical-insurance-status": "3. Medical insurance:",
+                    "father-medical-sheet-status": "4. E medical sheet:",
+                    "mother-marriage-status": "5. Proof of relationship docs:",
+                    "father-marriage-status": "5. Proof of relationship docs:",
+                    "mother-rep-status": "6. General docs:",
+                    "father-rep-status": "6. General docs:",
+                };
 
-            subgroupDiv.appendChild(createPortalSubgroup(item));
-        });
+                const sectionHeader = document.createElement('div');
+                sectionHeader.className = 'category-header';
+                sectionHeader.textContent = sectionHeaderMap[item.id];
+                subgroupDiv.appendChild(sectionHeader);
 
-        formContentDiv.appendChild(subgroupDiv);
+                subgroupDiv.appendChild(createPortalSubgroup(item));
+            });
 
-        // Show the relevant section based on the selectedApplicantDocuments
-        if (selectedApplicantDocuments === applicantType || selectedApplicantDocuments === 'Both') {
-            subgroupDiv.style.display = 'block';
+            formContentDiv.appendChild(subgroupDiv);
+
+            // Show the relevant section based on the selectedApplicantDocuments
+            if (selectedApplicantDocuments === applicantType || selectedApplicantDocuments === 'Both') {
+                subgroupDiv.style.display = 'block';
+            }
+        } else {
+            console.error(`No items found for ${applicantType}`);
         }
     });
 }
@@ -336,17 +343,15 @@ async function accept(button) {
                 for (const key in curr_status) {
                     if (statusId == curr_status[key][1]) {
                         var config = {
-                            Entity: "CC_Portal_Items",
-                            APIData: {
-                                "id": key,
+                            "data": [{
+                                "id":key,
                                 "Status": "Accepted"
-                            },
-                            Trigger: ["workflow", "blueprint"]
-                        }
+                            }],
+                        };
                         var response = await updateData(config);
                         console.log("response");
                         console.log(response);
-                        if (response.data[0].code == "SUCCESS") {
+                        if (response.details.statusMessage.data[0].code == "SUCCESS") {
                             curr_status[key][0] = "Accepted";
                             update_item_status_onchange(curr_status, key);
                             break;
@@ -357,6 +362,7 @@ async function accept(button) {
         });
     }
 }
+
 async function folder(value) {
     console.log("data ", value);
     const statusId = value.dataset.statusId;
@@ -385,14 +391,31 @@ ZOHO.embeddedApp.on("PageLoad", async (data) => {
     entityName = data.Entity;
     console.log('data', entityId);
     console.log('entityName', entityName);
-    ZOHO.CRM.API.getRecord({
-        Entity: "Cases", approved: "both", RecordID: entityId
-    })
+    var conn_name = "crm"; // Use "crm" as the connection name
+
+    var req_data = {
+        "parameters": {
+            "Entity": "Cases",
+            "RecordID": entityId
+        },
+        "method": "GET",
+        "url": "https://www.zohoapis.com/crm/v2/Cases/" + entityId, // Adjust the URL to match the correct endpoint
+    };
+
+    ZOHO.CRM.CONNECTION.invoke(conn_name, req_data)
         .then(async function (data) {
-            console.log(data);
-            const typeofapp = data.data[0].Type_of_Application;
-            const statusdata = data.data[0].status;
-            const selectedApplicantDocuments = data.data[0].Selected_Applicant_s_Documents; // Add this line
+            console.log("DATA MINTU", data);
+
+            // Handle the response here
+            // if(data.status === "success" && data.details.CODE === 200) {
+            //     console.log("Action completed successfully");
+            // } else {
+            //     console.error("Error in invoking connection", data);
+            // }
+
+            const typeofapp = data.details.statusMessage.data[0].Type_of_Application;
+            const statusdata = data.details.statusMessage.data[0].status;
+            const selectedApplicantDocuments = data.details.statusMessage.data[0].Selected_Applicant_s_Documents; // Add this line
             console.log(typeofapp, idmap[typeofapp]);
             const formType = idmap[typeofapp];
             if (formType && formConfigurations[formType]) {
@@ -402,20 +425,18 @@ ZOHO.embeddedApp.on("PageLoad", async (data) => {
             }
             // get related record for Portal Item
             const related_items = await getPortalItems("Cases", entityId, "Portal_Items", 1, 200);
-            console.log(related_items);
-            for (let index = 0; index < related_items.data.length; index++) {
-                const element = related_items.data[index];
+            console.log("related_items", related_items);
+            for (let index = 0; index < related_items.details.statusMessage.data.length; index++) {
+                const element = related_items.details.statusMessage.data[index];
                 curr_status[element.Portal_Item_Hash] = [element.Status, element.Item_ID, element.Rejected_Reason, element.File_preview, element.Workdrive_Folder_Link];
                 // status update
                 update_item_status(curr_status, element.Portal_Item_Hash);
             }
             console.log("curr_status");
             console.log(curr_status);
-            // for (let iterator in curr_status) {
-            //     console.log(iterator);
-            // }   
-        })
+        }) /////mintu 
 });
+
 ZOHO.embeddedApp.init().then(function (data) {
     ZOHO.CRM.UI.Resize({ height: "100%", width: "70%" }).then(function (data) {
 
@@ -492,18 +513,16 @@ async function submitRejectReason() {
         for (const key in curr_status) {
             if (statusElementId == curr_status[key][1]) {
                 var config = {
-                    Entity: "CC_Portal_Items",
-                    APIData: {
-                        "id": key,
+                    "data": [{
+                        "id":key,
                         "Status": "Rejected",
                         "Rejected_Reason": reason
-                    },
-                    Trigger: ["workflow", "blueprint"]
-                }
+                    }],
+                };
                 var response = await updateData(config);
                 console.log("response");
                 console.log(response);
-                if (response.data[0].code == "SUCCESS") {
+                if (response.details.statusMessage.data[0].code == "SUCCESS") {
                     curr_status[key][0] = "Rejected";
                     curr_status[key][2] = reason;
                     update_item_status_onchange(curr_status, key);
@@ -529,16 +548,35 @@ function closeRejectPopup() {
     }
 }
 
-async function getPortalItems(module_name, recID, related_list, page, per_page) {
-    return ZOHO.CRM.API.getRelatedRecords({ Entity: module_name, RecordID: recID, RelatedList: related_list, page: page, per_page: per_page });
+async function getPortalItems(module_name, recID, related_list) {
+    var req_data = {
+        "method": "GET",
+        "url": `https://www.zohoapis.com/crm/v2/${module_name}/${recID}/${related_list}`,
+    };
+    return ZOHO.CRM.CONNECTION.invoke("crm", req_data);
 }
 
 async function updateData(APIData) {
-    return ZOHO.CRM.API.updateRecord(APIData);
+    var req_data = {
+        "parameters": APIData,
+        "method": "PUT",
+        "url": "https://www.zohoapis.com/crm/v2/CC_Portal_Items",
+    };
+    return ZOHO.CRM.CONNECTION.invoke("crm", req_data);
 }
 
+
 async function getRecord(ModuleName, RecId) {
-    return ZOHO.CRM.API.getRecord({ Entity: ModuleName, approved: "both", RecordID: RecId });
+    var req_data = {
+        "parameters": {
+            "ModuleName": ModuleName,
+            "RecId": RecId
+        },
+        "headers": {},
+        "method": "GET",
+        "url": "https://www.zohoapis.com/crm/v6/" + ModuleName + "/" + RecId,
+    };
+    return ZOHO.CRM.CONNECTION.invoke("crm", req_data)
 }
 
 async function previewFile(fileType) {
@@ -552,14 +590,13 @@ async function previewFile(fileType) {
     console.log(previewFileId);
     for (const key in curr_status) {
         if (previewFileId == curr_status[key][1]) {
-            // if ("pr-card-status" == curr_status[key][1]) {
             var getData = await getRecord("CC_Portal_Items", key);
             console.log("response");
             console.log(getData);
-            if (getData.data[0] != "") {
-                console.log("Indside Succes");
-                if (getData.data[0].File_preview != "") {
-                    var fileUrl = getData.data[0].File_preview;
+            if (getData.details.statusMessage.data[0] != "") {
+                console.log("Indside Success");
+                if (getData.details.statusMessage.data[0].File_preview != "") {
+                    var fileUrl = getData.details.statusMessage.data[0].File_preview;
                     const pdfViewer = document.createElement('embed');
                     pdfViewer.setAttribute('src', fileUrl);
                     pdfViewer.setAttribute('type', 'application/pdf');

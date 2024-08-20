@@ -290,3 +290,7 @@ body {
     margin-bottom: 20px;
     margin-left: 27%;
 }
+.reject_reason{
+    text-wrap: wrap;
+    overflow-wrap: anywhere;
+}
