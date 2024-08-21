@@ -285,13 +285,13 @@ function createApplicantSection(selectedApplicantDocuments) {
         if (items && items.length > 0) {
             items.forEach(item => {
                  // Skip "mother-marriage-status" and "father-marriage-status" when selectedApplicantDocuments is not "Both"
-                 if (
-                    (selectedApplicantDocuments !== 'Both' && 
-                    ((applicantType === 'Mother' && item.id === 'mother-marriage-status') ||
-                    (applicantType === 'Father' && item.id === 'father-marriage-status')))
-                ) {
-                    return;
-                }
+                //  if (
+                //     (selectedApplicantDocuments !== 'Both' && 
+                //     ((applicantType === 'Mother' && item.id === 'mother-marriage-status') ||
+                //     (applicantType === 'Father' && item.id === 'father-marriage-status')))
+                // ) {
+                //     return;
+                // }
                 const sectionHeaderMap = {
                     "mother-questionnaire-status": "1. Questionnaire Form:",
                     "father-questionnaire-status": "1. Questionnaire Form:",
@@ -327,9 +327,6 @@ function createApplicantSection(selectedApplicantDocuments) {
     });
 }
 
-
-
-
 function formatHeader(key) {
     return key.split('_').map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(' ');
 }
@@ -355,7 +352,7 @@ async function accept(button) {
                     if (statusId == curr_status[key][1]) {
                         var config = {
                             "data": [{
-                                "id": key,
+                                "id":key,
                                 "Status": "Accepted"
                             }],
                         };
@@ -525,7 +522,7 @@ async function submitRejectReason() {
             if (statusElementId == curr_status[key][1]) {
                 var config = {
                     "data": [{
-                        "id": key,
+                        "id":key,
                         "Status": "Rejected",
                         "Rejected_Reason": reason
                     }],
