@@ -19,7 +19,7 @@ const formConfigurations = {
                 id: "identity_documents",
                 header: "1. Identity documents:",
                 items: [
-                    { id: "pr-card-status", label: "PR CARD", file: "pr-card-file", statusId: "pr-card-status" },
+                    { id: "pr-card-status", label: "PR Cards(Husband and Wife)", file: "pr-card-file", statusId: "pr-card-status" },
                     { id: "passports-status", label: "PASSPORTS", file: "passports-file", statusId: "passports-status" }
                 ]
             },
@@ -41,8 +41,8 @@ const formConfigurations = {
                 items: [
                     { id: "employment-letter-status", label: "Job/Employment letter", file: "employment-letter-file", statusId: "employment-letter-status" },
                     { id: "pay-slips-status", label: "Pay slips", file: "pay-slips-file", statusId: "pay-slips-status" },
-                    { id: "notice-of-assessment-status", label: "Notice of assessment", file: "notice-of-assessment-file", statusId: "notice-of-assessment-status" },
-                    { id: "t4-status", label: "T4", file: "t4-file", statusId: "t4-status" },
+                    { id: "notice-of-assessment-status", label: "Notice Of Assessment And T4", file: "notice-of-assessment-file", statusId: "notice-of-assessment-status" },
+                    // { id: "t4-status", label: "T4", file: "t4-file", statusId: "t4-status" },
                     { id: "additional-income-proof-status", label: "Proof of additional income (incorporation registration)", file: "additional-income-proof-file", statusId: "additional-income-proof-status" },
                 ]
             },
@@ -51,7 +51,7 @@ const formConfigurations = {
                 header: "4. Proof of funds:",
                 items: [
                     { id: "bank-statements-status", label: "Bank statements", file: "bank-statements-file", statusId: "bank-statements-status" },
-                    { id: "fixed-deposits-status", label: "Fixed deposits", file: "fixed-deposits-file", statusId: "fixed-deposits-status" }
+                    // { id: "fixed-deposits-status", label: "Fixed deposits", file: "fixed-deposits-file", statusId: "fixed-deposits-status" }
                 ]
             },
             {
@@ -284,6 +284,14 @@ function createApplicantSection(selectedApplicantDocuments) {
 
         if (items && items.length > 0) {
             items.forEach(item => {
+                 // Skip "mother-marriage-status" and "father-marriage-status" when selectedApplicantDocuments is not "Both"
+                 if (
+                    (selectedApplicantDocuments !== 'Both' && 
+                    ((applicantType === 'Mother' && item.id === 'mother-marriage-status') ||
+                    (applicantType === 'Father' && item.id === 'father-marriage-status')))
+                ) {
+                    return;
+                }
                 const sectionHeaderMap = {
                     "mother-questionnaire-status": "1. Questionnaire Form:",
                     "father-questionnaire-status": "1. Questionnaire Form:",
@@ -295,8 +303,8 @@ function createApplicantSection(selectedApplicantDocuments) {
                     "father-medical-sheet-status": "4. E medical sheet:",
                     "mother-marriage-status": "5. Proof of relationship docs:",
                     "father-marriage-status": "5. Proof of relationship docs:",
-                    "mother-rep-status": "6. General docs:",
-                    "father-rep-status": "6. General docs:",
+                    "mother-rep-status": "General docs:",
+                    "father-rep-status": "General docs:",
                 };
 
                 const sectionHeader = document.createElement('div');
@@ -318,6 +326,9 @@ function createApplicantSection(selectedApplicantDocuments) {
         }
     });
 }
+
+
+
 
 function formatHeader(key) {
     return key.split('_').map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(' ');
@@ -344,7 +355,7 @@ async function accept(button) {
                     if (statusId == curr_status[key][1]) {
                         var config = {
                             "data": [{
-                                "id":key,
+                                "id": key,
                                 "Status": "Accepted"
                             }],
                         };
@@ -514,7 +525,7 @@ async function submitRejectReason() {
             if (statusElementId == curr_status[key][1]) {
                 var config = {
                     "data": [{
-                        "id":key,
+                        "id": key,
                         "Status": "Rejected",
                         "Rejected_Reason": reason
                     }],
