@@ -6,6 +6,7 @@ var idmap = {
     "Super Visa": "superVisa",
     "Visitor Parents": "VisitorParents",
     "Visitor Spouse/Child": "SpousalVisitorVisa",
+    "SOWP Extension":"SOWPSpouseOutside",
 }
 var formContentDiv = document.getElementById('form-content');
 var formHeaderDiv = document.getElementById('form-header');
@@ -198,7 +199,164 @@ const formConfigurations = {
                 ]
             }
         ]
-    }
+    },
+    "SOWPSpouseOutside": {
+        "header": "Spousal Open Work Permit Application - Outside Canada",
+        "subHeader": "Documents required for the principal applicant (spouse outside Canada)",
+        "sections": [
+            {
+                "id": "information_checklist",
+                "header": "1. Information Checklist",
+                "items": [
+                    { "id": "info-checklist-status", "label": "Information Checklist", "file": "info-checklist-file", "statusId": "info-checklist-status" }
+                ]
+            },
+            {
+                "id": "passport_travel_document",
+                "header": "2. Passport or Travel Document",
+                "items": [
+                    { "id": "passport-status", "label": "New and Old Passports with all the Entry and Exit stamps", "file": "passport-file", "statusId": "passport-status" }
+                ]
+            },
+            {
+                "id": "status_current_country",
+                "header": "3. Status in Current Country (if other than Country of Residence)",
+                "items": [
+                    { "id": "visa-copy-status", "label": "Visa Copy", "file": "visa-copy-file", "statusId": "visa-copy-status" },
+                    { "id": "resident-permit-status", "label": "Resident Permit Copy", "file": "resident-permit-file", "statusId": "resident-permit-status" }
+                ]
+            },
+            {
+                "id": "photo",
+                "header": "4. Photo",
+                "items": [
+                    { "id": "photo-status", "label": "Photo (per specifications)", "file": "photo-file", "statusId": "photo-status" }
+                ]
+            },
+            {
+                "id": "education",
+                "header": "5. Education",
+                "items": [
+                    { "id": "education-documents-status", "label": "All Marksheets and Degree/Diploma starting from Grade 10", "file": "education-documents-file", "statusId": "education-documents-status" }
+                ]
+            },
+            {
+                "id": "employment_salaried",
+                "header": "6. Employment (Salaried)",
+                "items": [
+                    { "id": "itr-status", "label": "Income Tax Returns (Past 3 years)", "file": "itr-file", "statusId": "itr-status" },
+                    { "id": "employment-confirmation-status", "label": "Recent Employment Confirmation Letter", "file": "employment-confirmation-file", "statusId": "employment-confirmation-status" },
+                    { "id": "pay-slips-status", "label": "Pay Slips (3-4)", "file": "pay-slips-file", "statusId": "pay-slips-status" },
+                    { "id": "salary-bank-statement-status", "label": "Bank Account Statement showing salary deposited", "file": "salary-bank-statement-file", "statusId": "salary-bank-statement-status" },
+                    { "id": "previous-employment-letters-status", "label": "Previous Employment Letters", "file": "previous-employment-letters-file", "statusId": "previous-employment-letters-status" }
+                ]
+            },
+            {
+                "id": "employment_self_employed",
+                "header": "Employment (Self-Employed)",
+                "items": [
+                    { "id": "itr-self-employed-status", "label": "Income Tax Return (Past 3 years)", "file": "itr-self-employed-file", "statusId": "itr-self-employed-status" },
+                    { "id": "self-declaration-status", "label": "Self-declaration on Letterhead", "file": "self-declaration-file", "statusId": "self-declaration-status" },
+                    { "id": "business-license-status", "label": "Business License", "file": "business-license-file", "statusId": "business-license-status" },
+                    { "id": "pan-card-status", "label": "Pan Card", "file": "pan-card-file", "statusId": "pan-card-status" },
+                    { "id": "business-card-status", "label": "Business Card", "file": "business-card-file", "statusId": "business-card-status" },
+                    { "id": "self-employed-bank-statements-status", "label": "Bank Statements", "file": "self-employed-bank-statements-file", "statusId": "self-employed-bank-statements-status" }
+                ]
+            },
+            {
+                "id": "employment_agriculture",
+                "header": "Employment (Agriculture)",
+                "items": [
+                    { "id": "itr-agriculture-status", "label": "Income Tax Return (Past 3 years)", "file": "itr-agriculture-file", "statusId": "itr-agriculture-status" },
+                    { "id": "j-forms-status", "label": "J-Forms with English Translation", "file": "j-forms-file", "statusId": "j-forms-status" },
+                    { "id": "income-certificate-status", "label": "Income Certificate (if available)", "file": "income-certificate-file", "statusId": "income-certificate-status" }
+                ]
+            },
+            {
+                "id": "funds",
+                "header": "7. Funds",
+                "items": [
+                    { "id": "savings-bank-statement-status", "label": "Savings - Balance Certificate and Bank Statement (past 6 months)", "file": "savings-bank-statement-file", "statusId": "savings-bank-statement-status" },
+                    { "id": "fixed-deposit-status", "label": "Fixed Deposit", "file": "fixed-deposit-file", "statusId": "fixed-deposit-status" },
+                    { "id": "post-office-savings-status", "label": "Post Office Savings", "file": "post-office-savings-file", "statusId": "post-office-savings-status" }
+                ]
+            },
+            {
+                "id": "other_supporting_documents",
+                "header": "8. Other Supporting Documents (Optional)",
+                "items": [
+                    { "id": "ca-report-status", "label": "Chartered Accountant Report", "file": "ca-report-file", "statusId": "ca-report-status" },
+                    { "id": "property-valuation-report-status", "label": "Property Valuation Report", "file": "property-valuation-report-file", "statusId": "property-valuation-report-status" },
+                    { "id": "affidavit-of-support-status", "label": "Affidavit of Support (If Parents are supporting)", "file": "affidavit-of-support-file", "statusId": "affidavit-of-support-status" }
+                ]
+            },
+            {
+                "id": "sponsor_documents",
+                "header": "Sponsor Documents (You)",
+                "items": [
+                    { "id": "proof-of-relationship-status", "label": "Proof of Relationship", "file": "proof-of-relationship-file", "statusId": "proof-of-relationship-status" },
+                    { "id": "marriage-certificate-status", "label": "Marriage Certificate", "file": "marriage-certificate-file", "statusId": "marriage-certificate-status" },
+                    { "id": "divorce-death-certificate-status", "label": "Divorce Certificate/Death Certificate (If Applicable)", "file": "divorce-death-certificate-file", "statusId": "divorce-death-certificate-status" },
+                    { "id": "wedding-photos-status", "label": "Traditional before wedding and wedding photos", "file": "wedding-photos-file", "statusId": "wedding-photos-status" },
+                    { "id": "post-wedding-photos-status", "label": "Post wedding photos taken on different days at different places", "file": "post-wedding-photos-file", "statusId": "post-wedding-photos-status" },
+                    { "id": "honeymoon-photos-status", "label": "Honeymoon trip pictures (tickets, hotel receipts, boarding passes, etc.)", "file": "honeymoon-photos-file", "statusId": "honeymoon-photos-status" },
+                    { "id": "love-marriage-photos-status", "label": "Love marriage photos (if applicable)", "file": "love-marriage-photos-file", "statusId": "love-marriage-photos-status" },
+                    { "id": "social-media-photos-status", "label": "Photos posted with spouse on social media", "file": "social-media-photos-file", "statusId": "social-media-photos-status" },
+                    { "id": "chat-call-records-status", "label": "Chat and Call records", "file": "chat-call-records-file", "statusId": "chat-call-records-status" },
+                    { "id": "relationship-story-status", "label": "Your relationship story", "file": "relationship-story-file", "statusId": "relationship-story-status" },
+                    { "id": "joint-bank-account-status", "label": "Any joint bank account held (NOT MANDATORY if available)", "file": "joint-bank-account-file", "statusId": "joint-bank-account-status" },
+                    { "id": "money-gift-receipts-status", "label": "Money/Gift sending receipts", "file": "money-gift-receipts-file", "statusId": "money-gift-receipts-status" },
+                    { "id": "id-proof-with-spouse-status", "label": "ID proof with spouse name", "file": "id-proof-with-spouse-file", "statusId": "id-proof-with-spouse-status" },
+                    { "id": "wedding-cards-receipts-status", "label": "Wedding cards, shopping receipts, etc.", "file": "wedding-cards-receipts-file", "statusId": "wedding-cards-receipts-status" }
+                ]
+            },
+            {
+                "id": "refusals",
+                "header": "9. Refusals",
+                "items": [
+                    { "id": "previous-refusals-status", "label": "Previous Refusal letters of Canada or any other country", "file": "previous-refusals-file", "statusId": "previous-refusals-status" }
+                ]
+            },
+            {
+                "id": "sponsor_status_canada",
+                "header": "10. Sponsor Status in Canada",
+                "items": [
+                    { "id": "valid-work-permit-status", "label": "Valid Work Permit (minimum 6 months validity required)", "file": "valid-work-permit-file", "statusId": "valid-work-permit-status" }
+                ]
+            },
+            {
+                "id": "sponsor_employment_documents",
+                "header": "11. Sponsor Employment Documents",
+                "items": [
+                    { "id": "employment-verification-status", "label": "Current Employment Verification Letter", "file": "employment-verification-file", "statusId": "employment-verification-status" },
+                    { "id": "pay-stubs-status", "label": "Minimum 3 Pay stubs", "file": "pay-stubs-file", "statusId": "pay-stubs-status" },
+                    { "id": "salary-bank-statement-sponsor-status", "label": "Bank Statement showing salary deposits (minimum 3 months old)", "file": "salary-bank-statement-sponsor-file", "statusId": "salary-bank-statement-sponsor-status" },
+                    { "id": "provincial-nomination-status", "label": "Provincial Nomination (if applicable)", "file": "provincial-nomination-file", "statusId": "provincial-nomination-status" },
+                    { "id": "federal-ee-file-number-status", "label": "Federal/EE file number", "file": "federal-ee-file-number-file", "statusId": "federal-ee-file-number-status" },
+                    { "id": "notice-of-assessment-status", "label": "Notice of Assessment or T4 for the previous year", "file": "notice-of-assessment-file", "statusId": "notice-of-assessment-status" },
+                    { "id": "lmia-copy-status", "label": "LMIA copy (if applicable)", "file": "lmia-copy-file", "statusId": "lmia-copy-status" },
+                    { "id": "job-offer-status", "label": "Job offer (if applicable)", "file": "job-offer-file", "statusId": "job-offer-status" },
+                    { "id": "job-contract-status", "label": "Job Contract (if applicable)", "file": "job-contract-file", "statusId": "job-contract-status" }
+                ]
+            },
+            {
+                "id": "funds_sponsor",
+                "header": "12. Sponsor Funds",
+                "items": [
+                    { "id": "bank-savings-status", "label": "Bank Savings", "file": "bank-savings-file", "statusId": "bank-savings-status" },
+                    { "id": "investments-status", "label": "Investments", "file": "investments-file", "statusId": "investments-status" }
+                ]
+            },
+            {
+                "id": "sponsor_passport",
+                "header": "13. Sponsor Passport",
+                "items": [
+                    { "id": "passport-pages-status", "label": "Passport front and last page and stamp pages if traveled for wedding", "file": "passport-pages-file", "statusId": "passport-pages-status" }
+                ]
+            }
+        ]
+    },
+
 
 };
 

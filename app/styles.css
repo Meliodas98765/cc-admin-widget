@@ -18,10 +18,9 @@ body {
 }
 .admin-portal-header,.form-header{
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
     margin-bottom: 20px;
-    margin-left: 38%;
     color: #dc3545;
 }
 .admin-portal-header h2 {
@@ -285,10 +284,9 @@ body {
 }
 .sub-header{
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
     margin-bottom: 20px;
-    margin-left: 27%;
 }
 .reject_reason{
     text-wrap: wrap;
