@@ -6,7 +6,7 @@ var idmap = {
     "Super Visa": "superVisa",
     "Visitor Parents": "VisitorParents",
     "Visitor Spouse/Child": "SpousalVisitorVisa",
-    "SOWP Extension":"SOWPSpouseOutside",
+    "SOWP Extension": "SOWPSpouseOutside",
 }
 var formContentDiv = document.getElementById('form-content');
 var formHeaderDiv = document.getElementById('form-header');
@@ -356,148 +356,147 @@ const formConfigurations = {
             }
         ]
     },
-    {
-        "WorkPermitSpouseOnStudyPermit": {
-            "header": "Work Permit Application - Spouse on Study Permit",
+    "WorkPermitSpouseOnStudyPermit": {
+        "header": "Work Permit Application - Spouse on Study Permit",
             "subHeader": "Documents required for the principal applicant (spouse outside Canada)",
-            "sections": [
-                {
-                    "id": "information_sheet",
-                    "header": "1. Information Sheet",
-                    "items": []
-                },
-                {
-                    "id": "passport_travel_documents",
-                    "header": "2. Passport and Travel Documents",
-                    "items": [
-                        { "id": "passport-pages-status", "label": "Passport pages scanned (all new and old with all stamps)", "file": "passport-pages-file", "statusId": "passport-pages-status" },
-                        { "id": "travel-history-status", "label": "Previous travel/visa history", "file": "travel-history-file", "statusId": "travel-history-status" },
-                        { "id": "rejection-letter-status", "label": "Previous rejection letter (if applicable)", "file": "rejection-letter-file", "statusId": "rejection-letter-status" }
-                    ]
-                },
-                {
-                    "id": "birth_certificate",
-                    "header": "3. Birth Certificate",
-                    "items": [
-                        { "id": "birth-certificate-status", "label": "Principal applicant and children(s) birth certificate (if applicable)", "file": "birth-certificate-file", "statusId": "birth-certificate-status" },
-                        { "id": "ssc-certificate-status", "label": "SSC certificate (if birth certificate not available)", "file": "ssc-certificate-file", "statusId": "ssc-certificate-status" },
-                        { "id": "english-translation-status", "label": "English Translation (if applicable)", "file": "english-translation-file", "statusId": "english-translation-status" }
-                    ]
-                },
-                {
-                    "id": "education_documents",
-                    "header": "4. Education Documents",
-                    "items": [
-                        { "id": "education-documents-status", "label": "Education documents (starting from the 12th to the higher level completed - Mark Sheets and degree/diplomas)", "file": "education-documents-file", "statusId": "education-documents-status" }
-                    ]
-                },
-                {
-                    "id": "marriage_certificate",
-                    "header": "5. Marriage Certificate",
-                    "items": [
-                        { "id": "marriage-certificate-status", "label": "Marriage certificate", "file": "marriage-certificate-file", "statusId": "marriage-certificate-status" }
-                    ]
-                },
-                {
-                    "id": "employment_documents",
-                    "header": "6. Employment Documents",
-                    "items": [
-                        { "id": "employment-confirmation-status", "label": "Employment Confirmation letter from current employer", "file": "employment-confirmation-file", "statusId": "employment-confirmation-status" },
-                        { "id": "salary-bank-statement-status", "label": "Bank statement showing salary deposited", "file": "salary-bank-statement-file", "statusId": "salary-bank-statement-status" },
-                        { "id": "pay-slips-status", "label": "Pay slips (recent 2-3)", "file": "pay-slips-file", "statusId": "pay-slips-status" },
-                        { "id": "previous-job-experience-letters-status", "label": "Previous job experience letters", "file": "previous-job-experience-letters-file", "statusId": "previous-job-experience-letters-status" }
-                    ]
-                },
-                {
-                    "id": "self_employment_documents",
-                    "header": "Self Employment Documents",
-                    "items": [
-                        { "id": "self-declaration-status", "label": "Self declaration on Letterhead", "file": "self-declaration-file", "statusId": "self-declaration-status" },
-                        { "id": "business-license-status", "label": "Business License", "file": "business-license-file", "statusId": "business-license-status" },
-                        { "id": "pan-card-status", "label": "Pan Card", "file": "pan-card-file", "statusId": "pan-card-status" },
-                        { "id": "business-card-status", "label": "Business Card", "file": "business-card-file", "statusId": "business-card-status" }
-                    ]
-                },
-                {
-                    "id": "agriculture_income_documents",
-                    "header": "Agriculture Income Documents",
-                    "items": [
-                        { "id": "income-certificate-status", "label": "Income Certificate", "file": "income-certificate-file", "statusId": "income-certificate-status" },
-                        { "id": "j-forms-status", "label": "J-Forms", "file": "j-forms-file", "statusId": "j-forms-status" },
-                        { "id": "agriculture-bank-statements-status", "label": "Bank Statements", "file": "agriculture-bank-statements-file", "statusId": "agriculture-bank-statements-status" },
-                        { "id": "itr-agriculture-status", "label": "Income Tax Returns (Agriculture - Last 3 years)", "file": "itr-agriculture-file", "statusId": "itr-agriculture-status" }
-                    ]
-                },
-                {
-                    "id": "funds",
-                    "header": "7. Funds",
-                    "items": [
-                        { "id": "bank-statement-status", "label": "Bank statement (last 6 months)", "file": "bank-statement-file", "statusId": "bank-statement-status" },
-                        { "id": "fixed-deposit-status", "label": "Fixed deposit proof (if available)", "file": "fixed-deposit-file", "statusId": "fixed-deposit-status" },
-                        { "id": "ca-report-status", "label": "Chartered Accountant Report (Shows Movable and Immovable Assets)", "file": "ca-report-file", "statusId": "ca-report-status" },
-                        { "id": "property-evaluation-status", "label": "Property evaluation", "file": "property-evaluation-file", "statusId": "property-evaluation-status" },
-                        { "id": "itr-status", "label": "Income Tax Returns – Last 3 years (if available)", "file": "itr-file", "statusId": "itr-status" }
-                    ]
-                },
-                {
-                    "id": "photo",
-                    "header": "8. Photo",
-                    "items": [
-                        { "id": "photo-status", "label": "Photo - soft copy with white background", "file": "photo-file", "statusId": "photo-status" }
-                    ]
-                },
-                {
-                    "id": "marriage_history_documents",
-                    "header": "9. Marriage History Documents",
-                    "items": [
-                        { "id": "divorce-death-certificate-status", "label": "Divorce Certificate/Death Certificate if previously married", "file": "divorce-death-certificate-file", "statusId": "divorce-death-certificate-status" }
-                    ]
-                },
-                {
-                    "id": "parental_support_documents",
-                    "header": "10. Parental Support Documents",
-                    "items": [
-                        { "id": "affidavit-of-support-status", "label": "Affidavit of Support (if Parents' Income, Funds, and Properties are shown)", "file": "affidavit-of-support-file", "statusId": "affidavit-of-support-status" }
-                    ]
-                },
-                {
-                    "id": "sponsor_documents",
-                    "header": "11. Sponsor Documents (You)",
-                    "items": [
-                        { "id": "sponsor-passport-status", "label": "Copy of passport front and last page", "file": "sponsor-passport-file", "statusId": "sponsor-passport-status" },
-                        { "id": "valid-visa-status", "label": "Current Valid visa", "file": "valid-visa-file", "statusId": "valid-visa-status" },
-                        { "id": "valid-study-permit-status", "label": "Current valid study permit (minimum 6 months)", "file": "valid-study-permit-file", "statusId": "valid-study-permit-status" },
-                        { "id": "bank-statement-status", "label": "Bank Statement, GIC Account Statement", "file": "bank-statement-file", "statusId": "bank-statement-status" },
-                        { "id": "good-standing-letter-status", "label": "Good standing letter from college (if available)", "file": "good-standing-letter-file", "statusId": "good-standing-letter-status" },
-                        { "id": "transcripts-status", "label": "Transcripts of semesters completed successfully", "file": "transcripts-file", "statusId": "transcripts-status" },
-                        { "id": "enrollment-letter-status", "label": "Enrollment letter from college", "file": "enrollment-letter-file", "statusId": "enrollment-letter-status" },
-                        { "id": "fee-receipts-status", "label": "Receipts of fee paid to college", "file": "fee-receipts-file", "statusId": "fee-receipts-status" },
-                        { "id": "letter-of-acceptance-status", "label": "Letter of Acceptance", "file": "letter-of-acceptance-file", "statusId": "letter-of-acceptance-status" }
-                    ]
-                },
-                {
-                    "id": "relationship_proof",
-                    "header": "12. Proof to Establish the Genuineness of Relationship",
-                    "items": [
-                        { "id": "roka-photos-status", "label": "Roka/Engagement Photos", "file": "roka-photos-file", "statusId": "roka-photos-status" },
-                        { "id": "wedding-photos-status", "label": "Traditional wedding photos - performing all rituals and customs", "file": "wedding-photos-file", "statusId": "wedding-photos-status" },
-                        { "id": "family-photos-status", "label": "Photos showing both groom and bride’s families and crowd at the wedding", "file": "family-photos-file", "statusId": "family-photos-status" },
-                        { "id": "post-wedding-photos-status", "label": "Post wedding photos taken on different days at different places", "file": "post-wedding-photos-file", "statusId": "post-wedding-photos-status" },
-                        { "id": "honeymoon-photos-status", "label": "Honeymoon trip pictures (if available)", "file": "honeymoon-photos-file", "statusId": "honeymoon-photos-status" },
-                        { "id": "love-marriage-photos-status", "label": "Love marriage photos (if applicable)", "file": "love-marriage-photos-file", "statusId": "love-marriage-photos-status" },
-                        { "id": "facebook-screenshots-status", "label": "Facebook screenshots showing marital status updated", "file": "facebook-screenshots-file", "statusId": "facebook-screenshots-status" },
-                        { "id": "social-media-photos-status", "label": "Any pictures posted with spouse on Facebook or any other social media account showing likes and comments", "file": "social-media-photos-file", "statusId": "social-media-photos-status" },
-                        { "id": "chat-records-status", "label": "Chat records before and after wedding", "file": "chat-records-file", "statusId": "chat-records-status" },
-                        { "id": "relationship-story-status", "label": "Your relationship story", "file": "relationship-story-file", "statusId": "relationship-story-status" },
-                        { "id": "joint-bank-account-status", "label": "Any joint bank account held (NOT MANDATORY if available)", "file": "joint-bank-account-file", "statusId": "joint-bank-account-status" },
-                        { "id": "id-proof-with-spouse-status", "label": "Any ID proof with Spouse Name", "file": "id-proof-with-spouse-file", "statusId": "id-proof-with-spouse-status" },
-                        { "id": "gift-receipts-status", "label": "Gift Sent to each other – Receipts", "file": "gift-receipts-file", "statusId": "gift-receipts-status" },
-                        { "id": "wedding-cards-status", "label": "Wedding Cards", "file": "wedding-cards-file", "statusId": "wedding-cards-status" }
-                    ]
-                }
-            ]
-        }
-    
+                "sections": [
+                    {
+                        "id": "information_sheet",
+                        "header": "1. Information Sheet",
+                        "items": []
+                    },
+                    {
+                        "id": "passport_travel_documents",
+                        "header": "2. Passport and Travel Documents",
+                        "items": [
+                            { "id": "passport-pages-status", "label": "Passport pages scanned (all new and old with all stamps)", "file": "passport-pages-file", "statusId": "passport-pages-status" },
+                            { "id": "travel-history-status", "label": "Previous travel/visa history", "file": "travel-history-file", "statusId": "travel-history-status" },
+                            { "id": "rejection-letter-status", "label": "Previous rejection letter (if applicable)", "file": "rejection-letter-file", "statusId": "rejection-letter-status" }
+                        ]
+                    },
+                    {
+                        "id": "birth_certificate",
+                        "header": "3. Birth Certificate",
+                        "items": [
+                            { "id": "birth-certificate-status", "label": "Principal applicant and children(s) birth certificate (if applicable)", "file": "birth-certificate-file", "statusId": "birth-certificate-status" },
+                            { "id": "ssc-certificate-status", "label": "SSC certificate (if birth certificate not available)", "file": "ssc-certificate-file", "statusId": "ssc-certificate-status" },
+                            { "id": "english-translation-status", "label": "English Translation (if applicable)", "file": "english-translation-file", "statusId": "english-translation-status" }
+                        ]
+                    },
+                    {
+                        "id": "education_documents",
+                        "header": "4. Education Documents",
+                        "items": [
+                            { "id": "education-documents-status", "label": "Education documents (starting from the 12th to the higher level completed - Mark Sheets and degree/diplomas)", "file": "education-documents-file", "statusId": "education-documents-status" }
+                        ]
+                    },
+                    {
+                        "id": "marriage_certificate",
+                        "header": "5. Marriage Certificate",
+                        "items": [
+                            { "id": "marriage-certificate-status", "label": "Marriage certificate", "file": "marriage-certificate-file", "statusId": "marriage-certificate-status" }
+                        ]
+                    },
+                    {
+                        "id": "employment_documents",
+                        "header": "6. Employment Documents",
+                        "items": [
+                            { "id": "employment-confirmation-status", "label": "Employment Confirmation letter from current employer", "file": "employment-confirmation-file", "statusId": "employment-confirmation-status" },
+                            { "id": "salary-bank-statement-status", "label": "Bank statement showing salary deposited", "file": "salary-bank-statement-file", "statusId": "salary-bank-statement-status" },
+                            { "id": "pay-slips-status", "label": "Pay slips (recent 2-3)", "file": "pay-slips-file", "statusId": "pay-slips-status" },
+                            { "id": "previous-job-experience-letters-status", "label": "Previous job experience letters", "file": "previous-job-experience-letters-file", "statusId": "previous-job-experience-letters-status" }
+                        ]
+                    },
+                    {
+                        "id": "self_employment_documents",
+                        "header": "Self Employment Documents",
+                        "items": [
+                            { "id": "self-declaration-status", "label": "Self declaration on Letterhead", "file": "self-declaration-file", "statusId": "self-declaration-status" },
+                            { "id": "business-license-status", "label": "Business License", "file": "business-license-file", "statusId": "business-license-status" },
+                            { "id": "pan-card-status", "label": "Pan Card", "file": "pan-card-file", "statusId": "pan-card-status" },
+                            { "id": "business-card-status", "label": "Business Card", "file": "business-card-file", "statusId": "business-card-status" }
+                        ]
+                    },
+                    {
+                        "id": "agriculture_income_documents",
+                        "header": "Agriculture Income Documents",
+                        "items": [
+                            { "id": "income-certificate-status", "label": "Income Certificate", "file": "income-certificate-file", "statusId": "income-certificate-status" },
+                            { "id": "j-forms-status", "label": "J-Forms", "file": "j-forms-file", "statusId": "j-forms-status" },
+                            { "id": "agriculture-bank-statements-status", "label": "Bank Statements", "file": "agriculture-bank-statements-file", "statusId": "agriculture-bank-statements-status" },
+                            { "id": "itr-agriculture-status", "label": "Income Tax Returns (Agriculture - Last 3 years)", "file": "itr-agriculture-file", "statusId": "itr-agriculture-status" }
+                        ]
+                    },
+                    {
+                        "id": "funds",
+                        "header": "7. Funds",
+                        "items": [
+                            { "id": "bank-statement-status", "label": "Bank statement (last 6 months)", "file": "bank-statement-file", "statusId": "bank-statement-status" },
+                            { "id": "fixed-deposit-status", "label": "Fixed deposit proof (if available)", "file": "fixed-deposit-file", "statusId": "fixed-deposit-status" },
+                            { "id": "ca-report-status", "label": "Chartered Accountant Report (Shows Movable and Immovable Assets)", "file": "ca-report-file", "statusId": "ca-report-status" },
+                            { "id": "property-evaluation-status", "label": "Property evaluation", "file": "property-evaluation-file", "statusId": "property-evaluation-status" },
+                            { "id": "itr-status", "label": "Income Tax Returns – Last 3 years (if available)", "file": "itr-file", "statusId": "itr-status" }
+                        ]
+                    },
+                    {
+                        "id": "photo",
+                        "header": "8. Photo",
+                        "items": [
+                            { "id": "photo-status", "label": "Photo - soft copy with white background", "file": "photo-file", "statusId": "photo-status" }
+                        ]
+                    },
+                    {
+                        "id": "marriage_history_documents",
+                        "header": "9. Marriage History Documents",
+                        "items": [
+                            { "id": "divorce-death-certificate-status", "label": "Divorce Certificate/Death Certificate if previously married", "file": "divorce-death-certificate-file", "statusId": "divorce-death-certificate-status" }
+                        ]
+                    },
+                    {
+                        "id": "parental_support_documents",
+                        "header": "10. Parental Support Documents",
+                        "items": [
+                            { "id": "affidavit-of-support-status", "label": "Affidavit of Support (if Parents' Income, Funds, and Properties are shown)", "file": "affidavit-of-support-file", "statusId": "affidavit-of-support-status" }
+                        ]
+                    },
+                    {
+                        "id": "sponsor_documents",
+                        "header": "11. Sponsor Documents (You)",
+                        "items": [
+                            { "id": "sponsor-passport-status", "label": "Copy of passport front and last page", "file": "sponsor-passport-file", "statusId": "sponsor-passport-status" },
+                            { "id": "valid-visa-status", "label": "Current Valid visa", "file": "valid-visa-file", "statusId": "valid-visa-status" },
+                            { "id": "valid-study-permit-status", "label": "Current valid study permit (minimum 6 months)", "file": "valid-study-permit-file", "statusId": "valid-study-permit-status" },
+                            { "id": "bank-statement-status", "label": "Bank Statement, GIC Account Statement", "file": "bank-statement-file", "statusId": "bank-statement-status" },
+                            { "id": "good-standing-letter-status", "label": "Good standing letter from college (if available)", "file": "good-standing-letter-file", "statusId": "good-standing-letter-status" },
+                            { "id": "transcripts-status", "label": "Transcripts of semesters completed successfully", "file": "transcripts-file", "statusId": "transcripts-status" },
+                            { "id": "enrollment-letter-status", "label": "Enrollment letter from college", "file": "enrollment-letter-file", "statusId": "enrollment-letter-status" },
+                            { "id": "fee-receipts-status", "label": "Receipts of fee paid to college", "file": "fee-receipts-file", "statusId": "fee-receipts-status" },
+                            { "id": "letter-of-acceptance-status", "label": "Letter of Acceptance", "file": "letter-of-acceptance-file", "statusId": "letter-of-acceptance-status" }
+                        ]
+                    },
+                    {
+                        "id": "relationship_proof",
+                        "header": "12. Proof to Establish the Genuineness of Relationship",
+                        "items": [
+                            { "id": "roka-photos-status", "label": "Roka/Engagement Photos", "file": "roka-photos-file", "statusId": "roka-photos-status" },
+                            { "id": "wedding-photos-status", "label": "Traditional wedding photos - performing all rituals and customs", "file": "wedding-photos-file", "statusId": "wedding-photos-status" },
+                            { "id": "family-photos-status", "label": "Photos showing both groom and bride’s families and crowd at the wedding", "file": "family-photos-file", "statusId": "family-photos-status" },
+                            { "id": "post-wedding-photos-status", "label": "Post wedding photos taken on different days at different places", "file": "post-wedding-photos-file", "statusId": "post-wedding-photos-status" },
+                            { "id": "honeymoon-photos-status", "label": "Honeymoon trip pictures (if available)", "file": "honeymoon-photos-file", "statusId": "honeymoon-photos-status" },
+                            { "id": "love-marriage-photos-status", "label": "Love marriage photos (if applicable)", "file": "love-marriage-photos-file", "statusId": "love-marriage-photos-status" },
+                            { "id": "facebook-screenshots-status", "label": "Facebook screenshots showing marital status updated", "file": "facebook-screenshots-file", "statusId": "facebook-screenshots-status" },
+                            { "id": "social-media-photos-status", "label": "Any pictures posted with spouse on Facebook or any other social media account showing likes and comments", "file": "social-media-photos-file", "statusId": "social-media-photos-status" },
+                            { "id": "chat-records-status", "label": "Chat records before and after wedding", "file": "chat-records-file", "statusId": "chat-records-status" },
+                            { "id": "relationship-story-status", "label": "Your relationship story", "file": "relationship-story-file", "statusId": "relationship-story-status" },
+                            { "id": "joint-bank-account-status", "label": "Any joint bank account held (NOT MANDATORY if available)", "file": "joint-bank-account-file", "statusId": "joint-bank-account-status" },
+                            { "id": "id-proof-with-spouse-status", "label": "Any ID proof with Spouse Name", "file": "id-proof-with-spouse-file", "statusId": "id-proof-with-spouse-status" },
+                            { "id": "gift-receipts-status", "label": "Gift Sent to each other – Receipts", "file": "gift-receipts-file", "statusId": "gift-receipts-status" },
+                            { "id": "wedding-cards-status", "label": "Wedding Cards", "file": "wedding-cards-file", "statusId": "wedding-cards-status" }
+                        ]
+                    }
+                ]
+    }
+
 
 };
 
@@ -519,9 +518,9 @@ function createPortalGroup(id, headerText, items) {
 }
 
 function createPortalSubgroup(item) {
-    
+
     if (item.id == 'mother-marriage-status') {
-        console.log(item);   
+        console.log(item);
     }
     const subgroupDiv = document.createElement('div');
     subgroupDiv.className = 'admin-portal-subgroup';
@@ -583,7 +582,7 @@ function createPortalSubgroup(item) {
     return subgroupDiv;
 }
 
-async function loadForm(formType,formData, selectedApplicantDocuments) {
+async function loadForm(formType, formData, selectedApplicantDocuments) {
     formContentDiv.innerHTML = '';
     formHeaderDiv.innerHTML = '';
     subHeaderDiv.innerHTML = '';
@@ -591,7 +590,7 @@ async function loadForm(formType,formData, selectedApplicantDocuments) {
     subHeaderDiv.innerHTML = "<h1>" + formData.subHeader + "</h1>";
     formData.sections.forEach(section => {
         if (section.id === 'applicant_documents') {
-            createApplicantSection(formType,selectedApplicantDocuments);
+            createApplicantSection(formType, selectedApplicantDocuments);
         } else {
             const items = section.items.map(item => ({
                 id: item.id,
@@ -611,7 +610,7 @@ function createApplicantSection(formType, selectedApplicantDocuments) {
     // Get the selected form's configuration
     const formConfig = formConfigurations[formType];
 
-    
+
     applicantDocumentTypes.forEach(applicantType => {
         const subgroupDiv = document.createElement('div');
         subgroupDiv.className = 'admin-portal-subgroup';
@@ -635,8 +634,8 @@ function createApplicantSection(formType, selectedApplicantDocuments) {
                 // Skip "mother-marriage-status" and "father-marriage-status" when selectedApplicantDocuments is not "Both"
                 if (
                     (selectedApplicantDocuments !== 'Both' && formType == "Super Visa" &&
-                    ((applicantType === 'Mother' && item.id === 'mother-marriage-status') ||
-                    (applicantType === 'Father' && item.id === 'father-marriage-status')))
+                        ((applicantType === 'Mother' && item.id === 'mother-marriage-status') ||
+                            (applicantType === 'Father' && item.id === 'father-marriage-status')))
                 ) {
                     console.log(selectedApplicantDocuments);
                     return;
@@ -657,13 +656,13 @@ function createApplicantSection(formType, selectedApplicantDocuments) {
                     "father-marriage-status": "5. Proof of relationship docs:",
                     "mother-rep-status": "General docs:",
                     "father-rep-status": "General docs:",
-                
+
                     // Visitor Parents Form mappings
                     "passports-stamps-status": "1. Documents for Parents:",
                     "spouse-passport-status": "1. Documents for Parents:",
                     "marriage-certificate-status": "1. Documents for Parents:",
                     "photo-scanned-status": "1. Documents for Parents:",
-                    
+
                     "property-documents-status": "2. Ties to Home Country and Finance Available in India:",
                     "income-proof-status": "2. Ties to Home Country and Finance Available in India:",
                     "job-letter-status": "2. Ties to Home Country and Finance Available in India:",
@@ -673,13 +672,13 @@ function createApplicantSection(formType, selectedApplicantDocuments) {
                     "paystubs-status": "2. Ties to Home Country and Finance Available in India:",
                     "business-documents-status": "2. Ties to Home Country and Finance Available in India:",
                     "finance-available-status": "2. Ties to Home Country and Finance Available in India:",
-                    
+
                     "itinerary-status": "3. Purpose of Visit:",
                     "returned-ticket-status": "3. Purpose of Visit:",
                     "duration-of-stay-status": "3. Purpose of Visit:",
-                    
+
                     "rejection-letter-status": "4. Letter of Previous Rejections (if any):",
-                    
+
                     "birth-certificate-status": "5. Documents from Inviter:",
                     "job-confirmation-status": "5. Documents from Inviter:",
                     "business-registration-status": "5. Documents from Inviter:",
@@ -739,7 +738,7 @@ async function accept(button) {
                     if (statusId == curr_status[key][1]) {
                         var config = {
                             "data": [{
-                                "id":key,
+                                "id": key,
                                 "Status": "Accepted"
                             }],
                         };
@@ -814,7 +813,7 @@ ZOHO.embeddedApp.on("PageLoad", async (data) => {
             console.log(typeofapp, idmap[typeofapp]);
             const formType = idmap[typeofapp];
             if (formType && formConfigurations[formType]) {
-                loadForm(formType,formConfigurations[formType], selectedApplicantDocuments); // Pass the value here
+                loadForm(formType, formConfigurations[formType], selectedApplicantDocuments); // Pass the value here
             } else {
                 console.error('Failed to load form configuration.');
             }
@@ -909,7 +908,7 @@ async function submitRejectReason() {
             if (statusElementId == curr_status[key][1]) {
                 var config = {
                     "data": [{
-                        "id":key,
+                        "id": key,
                         "Status": "Rejected",
                         "Rejected_Reason": reason
                     }],
