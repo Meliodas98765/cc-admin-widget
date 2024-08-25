@@ -4,7 +4,8 @@ var relatedModuleName = "Portal_Items";
 var curr_status = {};
 var idmap = {
     "Super Visa": "superVisa",
-    "Visitor Parents": "VisitorParents"
+    "Visitor Parents": "VisitorParents",
+    "Visitor Spouse/Child": "SpousalVisitorVisa",
 }
 var formContentDiv = document.getElementById('form-content');
 var formHeaderDiv = document.getElementById('form-header');
@@ -151,7 +152,54 @@ const formConfigurations = {
                 ]
             }
         ]
+    },
+    "SpousalVisitorVisa": {
+        "header": "Spousal Visitor Visa Application",
+        "subHeader": "Documents for Spousal Visitor Visa",
+        "sections": [
+            {
+                "id": "spouse_documents",
+                "header": "1. Documents for Spousal Visitor Visa",
+                "items": [
+                    { "id": "passports-stamps-status", "label": "Passports with all stamps, visas, and entry and exit stamps", "file": "passports-stamps-file", "statusId": "passports-stamps-status" },
+                    { "id": "photo-status", "label": "1 photo (specifications attached)", "file": "photo-file", "statusId": "photo-status" },
+                    { "id": "property-documents-status", "label": "Property documents including house and land", "file": "property-documents-file", "statusId": "property-documents-status" },
+                    { "id": "income-proof-status", "label": "Income proof", "file": "income-proof-file", "statusId": "income-proof-status" },
+                    { "id": "job-letter-status", "label": "Current job letter", "file": "job-letter-file", "statusId": "job-letter-status" },
+                    { "id": "leave-sanction-status", "label": "Leave sanction letter", "file": "leave-sanction-file", "statusId": "leave-sanction-status" },
+                    { "id": "income-tax-documents-status", "label": "Income tax documents", "file": "income-tax-documents-file", "statusId": "income-tax-documents-status" },
+                    { "id": "bank-statement-status", "label": "Bank statement", "file": "bank-statement-file", "statusId": "bank-statement-status" },
+                    { "id": "paystubs-status", "label": "Paystubs", "file": "paystubs-file", "statusId": "paystubs-status" },
+                    { "id": "business-documents-status", "label": "Business documents", "file": "business-documents-file", "statusId": "business-documents-status" },
+                    { "id": "finance-available-status", "label": "Finance available", "file": "finance-available-file", "statusId": "finance-available-status" },
+                    { "id": "itinerary-status", "label": "Itinerary", "file": "itinerary-file", "statusId": "itinerary-status" },
+                    { "id": "returned-ticket-status", "label": "Returned ticket", "file": "returned-ticket-file", "statusId": "returned-ticket-status" },
+                    { "id": "duration-of-stay-status", "label": "Duration of stay (if available)", "file": "duration-of-stay-file", "statusId": "duration-of-stay-status" },
+                    { "id": "rejection-letter-status", "label": "Letter of previous rejections (if any)", "file": "rejection-letter-file", "statusId": "rejection-letter-status" },
+                    { "id": "marriage-certificate-status", "label": "Marriage certificate", "file": "marriage-certificate-file", "statusId": "marriage-certificate-status" },
+                    { "id": "relationship-proof-documents-status", "label": "Relationship proof documents - chats, pictures, wedding pictures, call screenshots", "file": "relationship-proof-documents-file", "statusId": "relationship-proof-documents-status" }
+                ]
+            },
+            {
+                "id": "documents_from_inviter",
+                "header": "2. Documents from Inviter",
+                "items": [
+                    { "id": "birth-certificate-status", "label": "Birth certificate (as proof of parents)", "file": "birth-certificate-file", "statusId": "birth-certificate-status" },
+                    { "id": "job-confirmation-status", "label": "Job confirmation letter including pay slips", "file": "job-confirmation-file", "statusId": "job-confirmation-status" },
+                    { "id": "business-registration-status", "label": "In case self-employed - Business Registration", "file": "business-registration-file", "statusId": "business-registration-status" },
+                    { "id": "business-license-status", "label": "Business license", "file": "business-license-file", "statusId": "business-license-status" },
+                    { "id": "business-bank-account-status", "label": "Business bank account", "file": "business-bank-account-file", "statusId": "business-bank-account-status" },
+                    { "id": "business-tax-documents-status", "label": "Business tax documents", "file": "business-tax-documents-file", "statusId": "business-tax-documents-status" },
+                    { "id": "notice-assessment-status", "label": "Notice of assessment/Option C printout", "file": "notice-assessment-file", "statusId": "notice-assessment-status" },
+                    { "id": "other-income-proof-status", "label": "Other income proof (if any)", "file": "other-income-proof-file", "statusId": "other-income-proof-status" },
+                    { "id": "bank-statement-inviter-status", "label": "Bank statement (salary deposited and other income proof)", "file": "bank-statement-inviter-file", "statusId": "bank-statement-inviter-status" },
+                    { "id": "canadian-status-proof-status", "label": "Canadian Status proof (PR Card or Canadian Passport)", "file": "canadian-status-proof-file", "statusId": "canadian-status-proof-status" },
+                    { "id": "indian-passport-inviter-status", "label": "First and last page of Indian Passport (if applicable)", "file": "indian-passport-inviter-file", "statusId": "indian-passport-inviter-status" }
+                ]
+            }
+        ]
     }
+
 };
 
 function createPortalGroup(id, headerText, items) {
