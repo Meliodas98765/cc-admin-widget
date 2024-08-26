@@ -6,7 +6,9 @@ var idmap = {
     "Super Visa": "superVisa",
     "Visitor Parents": "VisitorParents",
     "Visitor Spouse/Child": "SpousalVisitorVisa",
-    "SOWP Extension": "SOWPSpouseOutside",
+    "SOWP Extension": "WorkPermitSpouseOnStudyPermit",
+    "Spousal WP Outside": "WorkPermitSpouseOnStudyPermit",
+
 }
 var formContentDiv = document.getElementById('form-content');
 var formHeaderDiv = document.getElementById('form-header');
@@ -360,14 +362,10 @@ const formConfigurations = {
         "header": "Work Permit Application - Spouse on Study Permit",
             "subHeader": "Documents required for the principal applicant (spouse outside Canada)",
                 "sections": [
-                    {
-                        "id": "information_sheet",
-                        "header": "1. Information Sheet",
-                        "items": []
-                    },
+                    
                     {
                         "id": "passport_travel_documents",
-                        "header": "2. Passport and Travel Documents",
+                        "header": "1. Passport and Travel Documents",
                         "items": [
                             { "id": "passport-pages-status", "label": "Passport pages scanned (all new and old with all stamps)", "file": "passport-pages-file", "statusId": "passport-pages-status" },
                             { "id": "travel-history-status", "label": "Previous travel/visa history", "file": "travel-history-file", "statusId": "travel-history-status" },
@@ -376,7 +374,7 @@ const formConfigurations = {
                     },
                     {
                         "id": "birth_certificate",
-                        "header": "3. Birth Certificate",
+                        "header": "2. Birth Certificate",
                         "items": [
                             { "id": "birth-certificate-status", "label": "Principal applicant and children(s) birth certificate (if applicable)", "file": "birth-certificate-file", "statusId": "birth-certificate-status" },
                             { "id": "ssc-certificate-status", "label": "SSC certificate (if birth certificate not available)", "file": "ssc-certificate-file", "statusId": "ssc-certificate-status" },
@@ -385,21 +383,21 @@ const formConfigurations = {
                     },
                     {
                         "id": "education_documents",
-                        "header": "4. Education Documents",
+                        "header": "3. Education Documents",
                         "items": [
                             { "id": "education-documents-status", "label": "Education documents (starting from the 12th to the higher level completed - Mark Sheets and degree/diplomas)", "file": "education-documents-file", "statusId": "education-documents-status" }
                         ]
                     },
                     {
                         "id": "marriage_certificate",
-                        "header": "5. Marriage Certificate",
+                        "header": "4. Marriage Certificate",
                         "items": [
                             { "id": "marriage-certificate-status", "label": "Marriage certificate", "file": "marriage-certificate-file", "statusId": "marriage-certificate-status" }
                         ]
                     },
                     {
                         "id": "employment_documents",
-                        "header": "6. Employment Documents",
+                        "header": "5. Employment Documents",
                         "items": [
                             { "id": "employment-confirmation-status", "label": "Employment Confirmation letter from current employer", "file": "employment-confirmation-file", "statusId": "employment-confirmation-status" },
                             { "id": "salary-bank-statement-status", "label": "Bank statement showing salary deposited", "file": "salary-bank-statement-file", "statusId": "salary-bank-statement-status" },
@@ -429,7 +427,7 @@ const formConfigurations = {
                     },
                     {
                         "id": "funds",
-                        "header": "7. Funds",
+                        "header": "6. Funds",
                         "items": [
                             { "id": "bank-statement-status", "label": "Bank statement (last 6 months)", "file": "bank-statement-file", "statusId": "bank-statement-status" },
                             { "id": "fixed-deposit-status", "label": "Fixed deposit proof (if available)", "file": "fixed-deposit-file", "statusId": "fixed-deposit-status" },
@@ -440,28 +438,28 @@ const formConfigurations = {
                     },
                     {
                         "id": "photo",
-                        "header": "8. Photo",
+                        "header": "7. Photo",
                         "items": [
                             { "id": "photo-status", "label": "Photo - soft copy with white background", "file": "photo-file", "statusId": "photo-status" }
                         ]
                     },
                     {
                         "id": "marriage_history_documents",
-                        "header": "9. Marriage History Documents",
+                        "header": "8. Marriage History Documents",
                         "items": [
                             { "id": "divorce-death-certificate-status", "label": "Divorce Certificate/Death Certificate if previously married", "file": "divorce-death-certificate-file", "statusId": "divorce-death-certificate-status" }
                         ]
                     },
                     {
                         "id": "parental_support_documents",
-                        "header": "10. Parental Support Documents",
+                        "header": "9. Parental Support Documents",
                         "items": [
                             { "id": "affidavit-of-support-status", "label": "Affidavit of Support (if Parents' Income, Funds, and Properties are shown)", "file": "affidavit-of-support-file", "statusId": "affidavit-of-support-status" }
                         ]
                     },
                     {
                         "id": "sponsor_documents",
-                        "header": "11. Sponsor Documents (You)",
+                        "header": "10. Sponsor Documents (You)",
                         "items": [
                             { "id": "sponsor-passport-status", "label": "Copy of passport front and last page", "file": "sponsor-passport-file", "statusId": "sponsor-passport-status" },
                             { "id": "valid-visa-status", "label": "Current Valid visa", "file": "valid-visa-file", "statusId": "valid-visa-status" },
@@ -476,7 +474,7 @@ const formConfigurations = {
                     },
                     {
                         "id": "relationship_proof",
-                        "header": "12. Proof to Establish the Genuineness of Relationship",
+                        "header": "11. Proof to Establish the Genuineness of Relationship",
                         "items": [
                             { "id": "roka-photos-status", "label": "Roka/Engagement Photos", "file": "roka-photos-file", "statusId": "roka-photos-status" },
                             { "id": "wedding-photos-status", "label": "Traditional wedding photos - performing all rituals and customs", "file": "wedding-photos-file", "statusId": "wedding-photos-status" },
