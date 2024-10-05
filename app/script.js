@@ -224,56 +224,66 @@ const formConfigurations = {
             ]
         }
     },
-    bcPnp: {
-        header: "BC PNP Application",
-        subHeader: "bc PNP",
-        sections: [
+    VisitorParents: {
+        "header": "Visitor Visa Application",
+        "subHeader": "Documents for Parents",
+        "sections": [
             {
-                id: "applicant_questionnaire",
-                header: "1. Applicant Questionnaire Form.",
-                items: [
-                    { id: "form-status", portal_hash: "5202198000074634006", label: "Questionnaire Form", file: "first-sem-results-file", statusId: "form-status" }
+                "id": "parents_documents",
+                "header": "1. Documents for Parents",
+                "items": [
+                    { "id": "passports-stamps-status", "label": "Passports with all stamps, visas, and entry and exit stamps", "file": "passports-stamps-file", "statusId": "passports-stamps-status" },
+                    { "id": "spouse-passport-status", "label": "Spouse passport (if applicable)", "file": "spouse-passport-file", "statusId": "spouse-passport-status" },
+                    { "id": "marriage-certificate-status", "label": "Marriage certificate (if both parents are applying)", "file": "marriage-certificate-file", "statusId": "marriage-certificate-status" },
+                    { "id": "photo-scanned-status", "label": "1 photo scanned with white background", "file": "photo-scanned-file", "statusId": "photo-scanned-status" }
                 ]
             },
             {
-                id: "identity_documents",
-                header: "2. Identity documents:",
-                items: [
-                    { id: "bc-id-status", label: "BC ID", file: "bc-id-file", statusId: "bc-id-status" },
-                    { id: "passports-status", label: "PASSPORTS", file: "passports-file", statusId: "passports-status" }
+                "id": "ties_home_country_finance",
+                "header": "2. Ties to Home Country and Finance Available in India",
+                "items": [
+                    { "id": "property-documents-status", "label": "Property documents including house and land", "file": "property-documents-file", "statusId": "property-documents-status" },
+                    { "id": "income-proof-status", "label": "Income proof", "file": "income-proof-file", "statusId": "income-proof-status" },
+                    { "id": "job-letter-status", "label": "Current job letter", "file": "job-letter-file", "statusId": "job-letter-status" },
+                    { "id": "leave-sanction-status", "label": "Leave sanction letter", "file": "leave-sanction-file", "statusId": "leave-sanction-status" },
+                    { "id": "income-tax-documents-status", "label": "Income tax documents", "file": "income-tax-documents-file", "statusId": "income-tax-documents-status" },
+                    { "id": "bank-statement-status", "label": "Bank statement", "file": "bank-statement-file", "statusId": "bank-statement-status" },
+                    { "id": "paystubs-status", "label": "Paystubs", "file": "paystubs-file", "statusId": "paystubs-status" },
+                    { "id": "business-documents-status", "label": "Business documents", "file": "business-documents-file", "statusId": "business-documents-status" },
+                    { "id": "finance-available-status", "label": "Finance available", "file": "finance-available-file", "statusId": "finance-available-status" }
                 ]
             },
             {
-                id: "education_documents",
-                header: "3. Education documents:",
-                items: [
-                    { id: "transcripts-status", label: "Transcripts", file: "transcripts-file", statusId: "transcripts-status" },
-                    { id: "degree-certificate-status", label: "Degree Certificate", file: "degree-certificate-file", statusId: "degree-certificate-status" }
+                "id": "purpose_of_visit",
+                "header": "3. Purpose of Visit",
+                "items": [
+                    { "id": "itinerary-status", "label": "Itinerary", "file": "itinerary-file", "statusId": "itinerary-status" },
+                    { "id": "returned-ticket-status", "label": "Returned ticket", "file": "returned-ticket-file", "statusId": "returned-ticket-status" },
+                    { "id": "duration-of-stay-status", "label": "Duration of stay (if available)", "file": "duration-of-stay-file", "statusId": "duration-of-stay-status" }
                 ]
             },
             {
-                id: "employment_docs",
-                header: "4. Employment docs:",
-                items: [
-                    { id: "job-offer-status", label: "Job Offer", file: "job-offer-file", statusId: "job-offer-status" },
-                    { id: "pay-stubs-status", label: "Pay Stubs", file: "pay-stubs-file", statusId: "pay-stubs-status" },
-                    { id: "tax-returns-status", label: "Tax Returns", file: "tax-returns-file", statusId: "tax-returns-status" }
+                "id": "previous_rejections",
+                "header": "4. Letter of Previous Rejections (if any)",
+                "items": [
+                    { "id": "rejection-letter-status", "label": "Rejection letter", "file": "rejection-letter-file", "statusId": "rejection-letter-status" }
                 ]
             },
             {
-                id: "proof_of_funds",
-                header: "5. Proof of funds:",
-                items: [
-                    { id: "bank-statements-status", label: "Bank Statements", file: "bank-statements-file", statusId: "bank-statements-status" },
-                    { id: "investment-documents-status", label: "Investment Documents", file: "investment-documents-file", statusId: "investment-documents-status" }
-                ]
-            },
-            {
-                id: "supporting_documents",
-                header: "6. Supporting documents:",
-                items: [
-                    { id: "recommendation-letters-status", label: "Recommendation Letters", file: "recommendation-letters-file", statusId: "recommendation-letters-status" },
-                    { id: "proof-of-residence-status", label: "Proof of Residence", file: "proof-of-residence-file", statusId: "proof-of-residence-status" }
+                "id": "documents_from_inviter",
+                "header": "5. Documents from Inviter",
+                "items": [
+                    { "id": "birth-certificate-status", "label": "Birth certificate (as proof of parents)", "file": "birth-certificate-file", "statusId": "birth-certificate-status" },
+                    { "id": "job-confirmation-status", "label": "Job confirmation letter including payslips", "file": "job-confirmation-file", "statusId": "job-confirmation-status" },
+                    { "id": "business-registration-status", "label": "In case self-employed - Business Registration", "file": "business-registration-file", "statusId": "business-registration-status" },
+                    { "id": "business-license-status", "label": "Business license", "file": "business-license-file", "statusId": "business-license-status" },
+                    { "id": "business-bank-account-status", "label": "Business bank account", "file": "business-bank-account-file", "statusId": "business-bank-account-status" },
+                    { "id": "business-tax-documents-status", "label": "Business tax documents", "file": "business-tax-documents-file", "statusId": "business-tax-documents-status" },
+                    { "id": "notice-assessment-status", "label": "Notice of assessment/Option C printout", "file": "notice-assessment-file", "statusId": "notice-assessment-status" },
+                    { "id": "other-income-proof-status", "label": "Other income proof (if any)", "file": "other-income-proof-file", "statusId": "other-income-proof-status" },
+                    { "id": "bank-statement-inviter-status", "label": "Bank statement (salary deposited and other income proof)", "file": "bank-statement-inviter-file", "statusId": "bank-statement-inviter-status" },
+                    { "id": "canadian-status-proof-status", "label": "Canadian Status proof (PR Card or Canadian Passport)", "file": "canadian-status-proof-file", "statusId": "canadian-status-proof-status" },
+                    { "id": "indian-passport-inviter-status", "label": "First and last page of Indian Passport (if applicable)", "file": "indian-passport-inviter-file", "statusId": "indian-passport-inviter-status" }
                 ]
             }
         ]
@@ -801,7 +811,7 @@ function createApplicantSection(formType, selectedApplicantDocuments) {
             return;
         }
 
-        const items = formConfigurations.superVisa.applicant_documents[applicantType];
+        const items = formConfig.applicant_documents[applicantType];
 
         if (items && items.length > 0) {
             // Create a container for the applicant
@@ -828,6 +838,7 @@ function createApplicantSection(formType, selectedApplicantDocuments) {
 
             formContentDiv.appendChild(applicantDiv);
         } else {
+            console.log(items);
             console.error(`No items found for ${applicantType}`);
         }
     });
