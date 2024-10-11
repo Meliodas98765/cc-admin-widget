@@ -17,7 +17,7 @@ var subHeaderDiv = document.getElementById('sub-header');
 const formConfigurations = {
     "superVisa": {
         "header": "Super Visa Application",
-        "subHeader": "NB: The documents scanned with Cam Scanner will not be accepted",
+        "subHeader": "",
         "sections": [
            
             {
