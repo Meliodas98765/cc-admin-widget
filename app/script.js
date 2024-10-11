@@ -19,13 +19,14 @@ const formConfigurations = {
         "header": "Super Visa Application",
         "subHeader": "NB: The documents scanned with Cam Scanner will not be accepted",
         "sections": [
+           
             {
                 "id": "identity_documents",
-                "header": "1. Identity documents:",
+                "header": "1. Identity documents:for Host and Co-Host",
                 "items": [
                     {
                         "id": "pr-card-status",
-                        "label": "PR Cards(Husband and Wife)",
+                        "label": "PR Cards(Front and Back)",
                         "file": "pr-card-file",
                         "statusId": "pr-card-status"
                     },
@@ -34,6 +35,26 @@ const formConfigurations = {
                         "label": "PASSPORTS",
                         "file": "passports-file",
                         "statusId": "passports-status"
+                    }
+                   
+                ]
+            },
+            {
+                "id": "optional-id",
+                "header": "If not having question 1 document then please upload below docs",
+                "items": [
+                
+                    {
+                        "id": "citizen-status",
+                        "label": "Citizenship Certificate (front and Back) and Canadian Passport",
+                        "file": "citizen-file",
+                        "statusId": "citizen-status"
+                    },
+                    {
+                        "id": "citizenship-status",
+                        "label": "Citizenship Card or Canadian Birth Certificate ",
+                        "file": "citizenship-file",
+                        "statusId": "citizenship-status"
                     }
                 ]
             },
@@ -66,26 +87,33 @@ const formConfigurations = {
                         "statusId": "family-registration-status"
                     },
                     {
-                        "id": "indian-passport",
+                        "id": "indian-passport-status",
                         "label": "Indian passport or any education document",
                         "file": "indian-passport-file",
                         "statusId": "indian-passport-status"
+                    },
+                    {
+                        "id": "other-doc-status",
+                        "label": "Other relationship documents",
+                        "file": "other-doc-file",
+                        "statusId": "other-doc-status",
+                        "hint": "<div class='document-list'> also provide educational documents (grade 10th and grade 12), aadhaar card, Voter ID, any other documents showing parents name</div>"
                     }
                 ]
             },
             {
                 "id": "employment_docs",
-                "header": "3. Employment docs:",
+                "header": "3. Employment documents for Host and Co-host",
                 "items": [
                     {
                         "id": "employment-letter-status",
-                        "label": "Job/Employment letter",
+                        "label": "Job Letter(Original Job Confirmation letter stating Salary,period of employment,Regular hours per week)",
                         "file": "employment-letter-file",
                         "statusId": "employment-letter-status"
                     },
                     {
                         "id": "pay-slips-status",
-                        "label": "Pay slips",
+                        "label": "Pay slips (3-4 paylsips)",
                         "file": "pay-slips-file",
                         "statusId": "pay-slips-status"
                     },
@@ -104,29 +132,31 @@ const formConfigurations = {
                 ]
             },
             {
-                "id": "proof_of_funds",
-                "header": "4. Proof of funds:",
-                "items": [
-                    {
-                        "id": "bank-statements-status",
-                        "label": "Bank statements",
-                        "file": "bank-statements-file",
-                        "statusId": "bank-statements-status"
-                    }
-                ]
-            },
-            {
-                "id": "not_mandatory_docs",
-                "header": "5. Not Mandatory:",
+                "id": "Ohters_docs",
+                "header": "4. Other Documents",
                 "items": [
                     {
                         "id": "house-title-status",
                         "label": "House title",
                         "file": "house-title-file",
                         "statusId": "house-title-status"
+                    },
+                    {
+                        "id": "use-of-status",
+                        "label": "Use Of Rep",
+                        "file": "use-of-file",
+                        "statusId": "use-of-status"
+                    },
+                    {
+                        "id": "IRCC-form-status",
+                        "label": "IRCC Forms Signed",
+                        "file": "IRCC-form-file",
+                        "statusId": "IRCC-form-status"
                     }
                 ]
             },
+
+            //very important for selection applicant
             {
                 "id": "applicant_documents",
                 "header": "* Please select Applicant’s documents: *",
@@ -139,11 +169,19 @@ const formConfigurations = {
                     "id": "mother-questionnaire-status",
                     "label": "Questionnaire Form",
                     "file": "mother-questionnaire-file",
-                    "statusId": "mother-questionnaire-status"
+                    "statusId": "mother-questionnaire-status",
+                    "form-link": "https://zfrmz.com/hK4QvPTwFtpBcNhkGtDV"
+    
+                },
+                {
+                    "id": "mother-formfile-status",
+                    "label": "Questionnaire Form upload if not filled online",
+                    "file": "mother-formfile-file",
+                    "statusId": "mother-formfile-status"
                 },
                 {
                     "id": "mother-passport-status",
-                    "label": "Mother Passport",
+                    "label": "Mother Passport(Include New and Old Passports with all the Entry and Exit stamps)",
                     "file": "mother-passport-file",
                     "statusId": "mother-passport-status"
                 },
@@ -186,8 +224,14 @@ const formConfigurations = {
                     "statusId": "father-questionnaire-status"
                 },
                 {
+                    "id": "father-formfile-status",
+                    "label": "Questionnaire Form upload if not filled online",
+                    "file": "father-formfile-file",
+                    "statusId": "father-formfile-status"
+                },
+                {
                     "id": "father-passport-status",
-                    "label": "Father Passport",
+                    "label": "Father Passport(Include New and Old Passports with all the Entry and Exit stamps)",
                     "file": "father-passport-file",
                     "statusId": "father-passport-status"
                 },
