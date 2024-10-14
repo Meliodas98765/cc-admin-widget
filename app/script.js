@@ -112,6 +112,13 @@ const formConfigurations = {
                         "statusId": "employment-letter-status"
                     },
                     {
+                        "id": "self-employment-status",
+                        "label": "In case of self-employment, please provide Evidence of self-employment income",
+                        "file": "self-employment-file",
+                        "statusId": "self-employment-status",
+                        "hint":" <div class='document-list'>(e.g. business license, corporation doc, letter from the accountant etc.)</div>"
+                    },
+                    {
                         "id": "pay-slips-status",
                         "label": "Pay slips (3-4 paylsips)",
                         "file": "pay-slips-file",
