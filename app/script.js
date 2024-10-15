@@ -41,7 +41,7 @@ const formConfigurations = {
             },
             {
                 "id": "optional-id",
-                "header": "If not having question 1 document then please upload below docs",
+                "header": "OR please upload below docs",
                 "items": [
                 
                     {
@@ -120,7 +120,7 @@ const formConfigurations = {
                     },
                     {
                         "id": "pay-slips-status",
-                        "label": "Pay slips (3-4 paylsips)",
+                        "label": "Pay slips (3-4 payslips)",
                         "file": "pay-slips-file",
                         "statusId": "pay-slips-status"
                     },
